@@ -10,18 +10,18 @@ let fallas = 0;
 let cantidadN;
 let digitos;
 
-window.onload = function () {
 
-    cantidadN = parseInt(localStorage.getItem("cantidad"));
-    digitos = parseInt(localStorage.getItem("digitos"));
 
-    
+cantidadN = parseInt(localStorage.getItem("cantidad"));
+digitos = parseInt(localStorage.getItem("digitos"));
 
-    
-    let nombreJugador = localStorage.getItem("nombre");
-    const etiquetaNombre = document.getElementById("nombreJugador");
-    etiquetaNombre.innerHTML =  nombreJugador;
-};
+
+
+
+let nombreJugador = localStorage.getItem("nombre");
+const etiquetaNombre = document.getElementById("nombreJugador");
+etiquetaNombre.innerHTML = nombreJugador;
+
 
 function guardarOpciones() {
     let nombre = document.getElementById("nombreJugador").value;
@@ -36,21 +36,27 @@ function guardarOpciones() {
 }
 
 function DeTresDigitos() {
-    return Math.floor(Math.random() * 900) + 100;
+    const min = 100;
+    const max = 999;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function DeCuatroDigitos() {
-    return Math.floor(Math.random() * 9000) + 1000;
+    const min = 1000;
+    const max = 9999;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function DeCincoDigitos() {
+    const min = 10000;
+    const max = 99999;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function DeCincoDigitos() {
-    return Math.floor(Math.random() * 90000) + 10000;
-}
 
 function iniciarJuego() {
     limpiarPantalla()
     inicio();
-   
+
 
     numerosGenerados = [];
 
@@ -93,7 +99,7 @@ function verificar() {
         fallas = fallas + 1;
     }
     document.getElementById("aciertos").innerHTML = acierto;
-    document.getElementById("fallas").innerHTML =  fallas;
+    document.getElementById("fallas").innerHTML = fallas;
     document.getElementById("puntaje").innerHTML = puntaje;
 }
 
@@ -119,8 +125,8 @@ function siguienteIntento() {
         const btn = document.getElementById("btnSiguiente");
         if (btn) btn.disabled = true;
 
-        
-        
+
+
         // Modal
         document.getElementById("modalJugador").textContent =
             document.getElementById("nombreJugador").textContent;
@@ -150,7 +156,7 @@ function siguienteIntento() {
 function inicio() {
     let tiempo = 5;
     const contadorElemento = document.getElementById("contador");
-    
+
     // Asegurarse de que el elemento sea visible
     contadorElemento.style.display = "block";
     contadorElemento.style.visibility = "visible";
@@ -162,25 +168,25 @@ function inicio() {
         if (tiempo < 0) {
             clearInterval(intervalo);
             contadorElemento.innerText = "¡Tiempo terminado!";
-            
+
 
             // Ocultar el letrero después de 3 segundos (3000 ms)
             setTimeout(() => {
                 contadorElemento.style.visibility = "hidden";
-               
+
             }, 3000);
-            
-           
+
+
         }
     }, 1000);
 }
- 
+
 function limpiarPantalla() {
     const contadorElemento = document.getElementById("contador");
     contadorElemento.innerText = "";
     contadorElemento.style.visibility = "hidden";
 }
-    
+
 
 // Activa el sonido cuando el usuario haga el primer click
 window.addEventListener("click", activarSonido, { once: true });
@@ -203,18 +209,18 @@ const modal = document.getElementById("modal");
 const btnAbrir = document.getElementById("btnAbrirModal");
 const btnCerrar = document.getElementById("cerrarModal");
 
-    btnAbrir.addEventListener("click", () => {
+btnAbrir.addEventListener("click", () => {
     // Llena los datos del modal
-    document.getElementById("modalJugador").textContent = 
+    document.getElementById("modalJugador").textContent =
         document.getElementById("nombreJugador").textContent;
 
-    document.getElementById("modalAciertos").textContent = 
+    document.getElementById("modalAciertos").textContent =
         document.getElementById("aciertos").textContent;
 
-    document.getElementById("modalFallas").textContent = 
+    document.getElementById("modalFallas").textContent =
         document.getElementById("fallas").textContent;
 
-    document.getElementById("modalPuntaje").textContent = 
+    document.getElementById("modalPuntaje").textContent =
         document.getElementById("puntaje").textContent;
 
     modal.style.display = "block";
