@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opciones de juego</title>
+    <script src="js/memo.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="memo.js"></script>
+</head>
+<body class="fondo">
+	    <a class="cerrarSesion boton-sombra-suave" href="cerrarsesion.html">Cerrar sesion</a>
+		<img src="img/Logo.jpg" alt="memorizer" class="logo animacionPulse">
+		<img class="saludo" src="img/saludo.jpg" alt="saludo">
+
+
+	<!-- <h1 class="mt-4 configuracion">OPCIONES DE JUEGO</h1> -->
+	<div class="wave-container configuracion">
+    <h1 class="wave-text ">
+        <span>O</span><span>P</span><span>C</span><span>I</span><span>O</span><span>N</span><span>E</span><span>S</span> <span>DE</span> <span> J</span><span>U</span><span>E</span><span>G</span><span>O</span>
+    </h1>
+</div>
+
+	<div class="nombre">
+		<h2 class="encabezadoNombre ">Nombre</h2>
+		<input class="email boton-sombra-suave uppercase" type="" id="nombreJugador" placeholder="&#x1F464 Ingresa tu nombre">
+	</div>
+	<div class="container">
+		<div class="form-group selecct">
+			<label class="encabezado boton-sombra-suave" for="digitos">Cantidad de Dígitos</label>
+			<select class="encabezado selecct"	 name="digitos" id="digitos">
+				<option value="3"> 3 Dígitos</option>
+				<option value="4"> 4 Dígitos</option>
+				<option	value="5"> 5 Dígitos</option>
+			</select>
+		</div>
+		<div class="form-group selecct">
+			<label class="encabezado boton-sombra-suave" for="cantidadN">Cantidad de Números:</label>
+			<select class="encabezado selecct" name="cantidadN" id="cantidadN">
+				<option value="1"> 1 Numeros</option>
+				<option value="2"> 2 Numeros</option>
+				<option value="3"> 3 Numeros</option>
+				<option value="4"> 4 Numeros</option>
+				<option	value="5"> 5 Numeros</option>
+			</select>
+		</div>
+	</div>	
+	<div>
+		 <button class="continuar boton-sombra-suave" onclick="guardarOpciones()">Continuar</button>
+		
+	</div>
+
+	<audio id="musicaFondo" src="sound/LetsGo.mp3" autoplay muted loop></audio>
+
+	
+		
+</body>
+</html>

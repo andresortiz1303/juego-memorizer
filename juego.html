@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMORIZER</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/memo.js" defer></script>
+</head>
+<body class="fondo">
+
+  <img src="img/Logo.jpg" alt="memorizer" class="logo animacionPulse">
+
+    <div class="informacion">
+     <div class="config-informacion">
+            <p class="clar">JUGADOR</p>
+            <div class="puntaje uppercase" id="nombreJugador"></div>
+        </div>
+        <div>
+            <p class="clar">RONDA</p>
+            <div class="puntaje uppercase" id="intentosRestantes">1 / 5</div>
+        </div>
+        <div class="puntaje Container">
+            <p class="clar">PUNTAJE</p>
+            <div class="puntaje uppercase" id="puntaje">0</div>
+        </div>
+    </div>
+    <div class="contenedorNumero">
+        <button class="iniciarJuego" onclick=" inicio(); iniciarJuego()">Iniciar Juego</button>
+
+        <h3 class="recuerdaNumeros">Recuerda los números</h3>
+          
+        <div class="numero" id="numeroAleatorio">Números:</div>
+    </div>
+
+
+    <div class="contenedorNumero">
+
+             <button class="verificarRespuesta" onclick=" verificar()">Verificar Respuesta</button>
+
+        <input class="numero" type="text" id="arrRespuesta" placeholder="Ingresa tu respuesta aquí">
+        </div>
+        <div>
+        <button class="siguiente boton-sombra-suave"  onclick="inicio(); siguienteIntento()">Siguiente intento</button>
+    </div>
+ 
+    <div class="correctos" id="correctos"></div>
+    
+     
+
+  
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="location.href='opcionesdejuego.html'">volver</span>
+        <h2>Datos de partida</h2>
+        <p><strong>Jugador:</strong> <span id="modalJugador"></span></p>
+        <p><strong>Aciertos:</strong> <span id="modalAciertos"></span></p>
+        <p><strong>Fallas:</strong> <span id="modalFallas"></span></p>
+        <p><strong>Puntaje:</strong> <span id="modalPuntaje"></span></p>
+    </div>
+</div>
+
+            <p class="fallas" id="fallas"></p>
+            <p class="final" id="aciertos"></p>
+            <p class="temporizador" id="contador">5</p>
+            <audio id="musicaFondo" src="sound/Gator.mp3" autoplay muted loop></audio>
+       
+</body>
+</html>
